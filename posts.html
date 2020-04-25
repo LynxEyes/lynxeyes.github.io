@@ -1,0 +1,14 @@
+---
+permalink: /posts
+layout: home
+---
+{% for post in site.posts %}
+
+  <article>
+    <small>{{ post.date | date_to_string: "ordinal", "US" }}</small>
+    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+    {{ post.excerpt }}
+    <small><a href="{{ post.url }}">read more &gt;&gt;</a></small>
+  </article>
+
+{% endfor %}

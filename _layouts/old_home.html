@@ -4,6 +4,7 @@
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ '/assets/css/bootstrap-grid.min.css?v=' | append: site.github.build_revision | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
 
 {% seo %}
@@ -17,13 +18,27 @@
           <h1>{{ site.title | default: site.github.repository_name }}</h1>
         </a>
         <h2>{{ site.description | default: site.github.project_tagline }}</h2>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/blog/">Blog</a>
+        </nav>
       </div>
     </header>
 
     <div class="container">
-      <section id="main_content">
-        {{ content }}
-      </section>
+      <div class="row">
+        <div class="col-md-3 col-sm-12">
+          <img src="/assets/img/me_thumbnail.png" width="100px" style="display: block; border-radius: 10px;"/>
+          <p>
+            <b>Hello, this is me!!</b>
+          </p>
+        </div>
+        <div class="col-md-9 col-sm-12">
+          <section id="main_content">
+            {{ content }}
+          </section>
+        </div>
+      </div>
     </div>
   </body>
 </html>

@@ -1,0 +1,31 @@
+---
+permalink: /index.html
+layout: home
+---
+
+{% capture latest_post %}
+  {% assign featured_post = site.posts.first %}
+  <article>
+    <small>{{ featured_post.date | date_to_string: "ordinal", "US" }}</small>
+    <h3><a href="{{ featured_post.url }}">{{ featured_post.title }}</a></h3>
+    {{ featured_post.excerpt }}
+    <small><a href="{{ post.url }}">read more &gt;&gt;</a></small>
+  </article>
+{% endcapture %}
+
+{% capture latest_reads %}
+  {% assign links = site.data.good_reads | slice: 0, 2 %}
+  {% for link in links %}
+    <article>
+      <h4>&gt; <a href="{{ link.url }}" target="_blank">{{ link.title }}</a></h4>
+    </article>
+  {% endfor %}
+{% endcapture %}
+
+{% capture about_me %}
+  <article>
+    <h3>about me...</h3>
+  </article>
+{% endcapture %}
+
+{% include home_template.html %}
