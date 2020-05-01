@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Game Page</title>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+	<!-- Game CSS -->
+	<link rel="stylesheet" type="text/css" href="quiztime/css/game.css">
+
+</head>
+<body>
+
+	<!-- Main Container -->
+	<div class="d-flex flex-row topBar justify-content-around">
+		<div class="scoreLabel py-3">Pontos: 0</div>
+		<div class="py-2">
+			<img src="quiztime/images/SmallLogo.png" class="img-fluid smallLogo">
+		</div>
+		<div class="py-2">
+			<img src="quiztime/images/leaderboard.png" class="leaderboard" data-target="#leaderBoard" data-toggle="modal">
+		</div>
+	</div>
+
+	<!-- Game Board -->
+	<div class="container py-md-3 py-sm-3">
+		<div class="d-flex flex-row justify-content-center flex-wrap">
+			<div class="gamePiece beginner m-2 d-flex justify-content-center align-items-center text-center" onclick="showQuestion(1)">200<br/>Pergunta 1</div>
+			<div onclick="showQuestion(2)" class="gamePiece beginner m-2 d-flex justify-content-center align-items-center text-center">200<br/>Pergunta 2</div>
+			<div onclick="showQuestion(3)" class="gamePiece beginner m-2 d-flex justify-content-center align-items-center text-center">240<br/>Pergunta 3</div>
+			<div onclick="showQuestion(4)" class="gamePiece medium m-2 d-flex justify-content-center align-items-center text-center">400<br/>Pergunta 4</div>
+			<div onclick="showQuestion(5)" class="gamePiece medium m-2 d-flex justify-content-center align-items-center text-center">400<br/>Pergunta 5</div>
+			<div onclick="showQuestion(6)" class="gamePiece medium m-2 d-flex justify-content-center align-items-center text-center">400<br/>Pergunta 6</div>
+			<div onclick="showQuestion(7)" class="gamePiece hard m-2 d-flex justify-content-center align-items-center text-center">700<br/>Pergunta 7</div>
+			<div onclick="showQuestion(8)" class="gamePiece hard m-2 d-flex justify-content-center align-items-center text-center">700<br/>Pergunta 8</div>
+			<div onclick="showQuestion(9)" class="gamePiece hard m-2 d-flex justify-content-center align-items-center text-center">700<br/>Pergunta 9</div>
+		</div>
+	</div>
+
+	<!-- Question Modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="questionModal">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Responde a isto!</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="d-flex">
+						<div>
+							<p class="smallLabel" id="questionLabel">Pergunta 1</p>
+							<h4 id="questionText">Bla bla bla?</h4>
+						</div>
+					</div>
+					<div class="d-flex flex-column">
+						<button type="button" id="optionA" onclick="submitQuestion()" class="my-2 btn btn-primary">Resposta A: ble ble ble</button>
+						<button type="button" id="optionB" onclick="submitQuestion()" class="my-2 btn btn-success">Resposta B: ble ble ble</button>
+						<button type="button" id="optionC" onclick="submitQuestion()" class="my-2 btn btn-warning">Resposta C: ble ble ble</button>
+						<button type="button" id="optionD" onclick="submitQuestion()" class="my-2 btn btn-danger">Resposta D: ble ble ble</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Leaderboard Modal -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="leaderBoard">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Equipa</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="d-flex flex-row flex-wrap py-2 justify-content-center">
+						<div class="d-flex flex-column flex-fill align-items-center p-4 m-2 leaderCard">
+							<div class="d-block">
+								<img src="quiztime/images/ivo.jpg" class="personIcon rounded-circle">
+							</div>
+							<p class="smallLabel pt-1">CEO</p>
+							<h4 class="nameText">Ivo Jesus</h4>
+						</div>
+						<div class="d-flex flex-column align-items-center p-4 m-2 leaderCard">
+							<div class="d-block">
+								<img src="quiztime/images/rafael.png" class="personIcon rounded-circle">
+							</div>
+							<p class="smallLabel pt-1">UX Designer</p>
+							<h4 class="nameText">Rafael Jesus</h4>
+						</div>
+						<div class="d-flex flex-column align-items-center p-4 m-2 leaderCard">
+							<div class="d-block">
+								<img src="quiztime/images/cocodes.png" class="personIcon rounded-circle">
+							</div>
+							<p class="smallLabel pt-1">Mascote</p>
+							<h4 class="nameText">Mariana Jesus</h4>
+						</div>
+						<div class="d-flex flex-column align-items-center p-4 m-2 leaderCard">
+							<div class="d-block">
+								<img src="quiztime/images/tania.png" class="personIcon rounded-circle">
+							</div>
+							<p class="smallLabel pt-1">Jogadora</p>
+							<h4 class="nameText">Tania Martins</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+	<!-- Game JS -->
+	<script src="quiztime/js/content.js"></script>
+	<script src="quiztime/js/game.js"></script>
+
+</body>
+</html>
